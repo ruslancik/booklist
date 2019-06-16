@@ -71,7 +71,12 @@ class Store {
     //Display books on the UI
     static displayBook(){
 
+        const books = Store.getBook();
 
+        books.forEach(book => {
+            const ui = new UI();
+            ui.addBookToList(book);
+        });
     }
     // Add the book to the LS
     static addBook(book){
