@@ -85,7 +85,16 @@ class Store {
         localStorage.setItem('books', JSON.stringify(books));
     }
 
-    static deleteBook(){
+    static deleteBook(isbn){
+        const books = Store.getBook();
+
+        books.forEach((book,index) => {
+            if(book.isbn === isbn){
+                books.splice(index,1);
+            }
+        });
+        
+        localStorage.setItem('books', JSON.stringify(books));
 
     }
 };
@@ -129,5 +138,6 @@ document.getElementById('book-list').addEventListener('click', function(e){
             ui.showAlert('Book removed.', 'success');
         }
 
+        Store.deleteBook(e.target.parentElement.previousElementSibling.textContent)
         e.preventDefault();
 })
