@@ -35,7 +35,7 @@ UI.prototype.showAlert = function(message, className){
 
     const div = document.createElement('div');
 
-    div.className = `alert ${className}`;
+    div.className = `alert animated fadeInDown ${className}`;
 
     div.appendChild(document.createTextNode(message));
 
